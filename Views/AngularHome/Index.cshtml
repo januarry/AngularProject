@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div ng-controller="AngularCRUDCtrl">
+    <div class="divList">
+        <p><b><i>Movie List</i></b></p>
+        <table class="table table-hover">
+            <tr>
+                <td><b>ID</b></td>
+                <td><b>Title</b></td>
+                <td><b>Genre</b></td>
+                <td><b>Price</b></td>
+                <td><b>Rating</b></td>
+                <td><b>Action</b></td>
+            </tr>
+            <tr ng-repeat="movie in movies">
+                <td>
+                    {{movie.Id}}
+                </td>
+                <td>
+                    {{movie.Title}}
+                </td>
+                <td>
+                    {{movie.Genre}}
+                </td>
+                <td>
+                    {{movie.Price}}
+                </td>
+                <td>
+                    {{movie.Rating}}
+                </td>
+                <td>
+                    <span ng-click="editMovie(movie)" class="btn btn-primary">Edit</span>
+                    <span ng-click="deleteMovie(movie)" class="btn btn-danger">Delete</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <span ng-click="addMovieDiv()" class="btn btn-default">
+        Add Movie
+    </span>
+    <div ng-show="divMovie">
+        <p class="divHead"></p>
+        <table class="table">
+            <tr>
+                <td><b><i>{{Action}} Movie</i></b></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Id</b></td>
+                <td>
+                    <input type="text" disabled="disabled" ng-model="movieId" />
+                </td>
+                <td><b>Title</b></td>
+                <td>
+                    <input type="text" ng-model="movieTitle" />
+                </td>
+            </tr>
+            <tr>
+                <td><b>Genre</b></td>
+                <td>
+                    <input type="text" ng-model="movieGenre" />
+                </td>
+                <td><b>Price</b></td>
+                <td>
+                    <input type="text" ng-model="moviePrice" />
+                </td>
+            </tr>
+            <tr>
+                <td><b>Rating</b></td>
+                <td>
+                    <input type="text" ng-model="movieRating" />
+                </td>
+                <td></td>
+                <td>
+                    <input type="button" class="btn btn-default" value="Save" ng-click="addUpdateMovie()" />
+                    <input type="button" class="btn btn-danger" value="Cancel" ng-click="Cancel()" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
